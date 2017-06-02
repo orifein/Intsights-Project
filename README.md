@@ -43,7 +43,7 @@ That's all!
 ## Author ##
  Ori Feinshreiber - Python Developer
 
-## Contributes ##
+## Contribution ##
 
 You can contribute my bank account - that's always good (:
 
