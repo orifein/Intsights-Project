@@ -22,7 +22,7 @@ After that, you need to get the following libraries:
  
 You can install them by going to command line and enter the following command:
 
-  - pip install <Name Of Library>
+  - pip install ##Name Of Library##
 
 
 
