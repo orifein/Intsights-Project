@@ -2,7 +2,6 @@ import arrow
 from base_logger import BaseLogger
 from tinydb import TinyDB, Query
 from repeated_timer import RepeatedTimer
-from apt.auth import update
 db = TinyDB('db5.json')
 INTERVAL = 14400  # 14400 Seconds is 4Hours, Yep
 
