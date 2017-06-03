@@ -2,7 +2,8 @@ import arrow
 from base_logger import BaseLogger
 from tinydb import TinyDB, Query
 from repeated_timer import RepeatedTimer
-db = TinyDB('db4.json')
+from apt.auth import update
+db = TinyDB('db5.json')
 INTERVAL = 14400  # 14400 Seconds is 4Hours, Yep
 
 
@@ -26,6 +27,8 @@ class CrawlerManager(object):
             self.logger.info('Manager is still running')
         else:
             self.logger.info('First time work - starting')
+            self.do_work()
+            self.logger.debug('Finished first work- now will wait for interval')
             self.timer = RepeatedTimer(INTERVAL, CrawlerManager.do_work, self)
 
     def _get_crawler(self):
@@ -46,9 +49,11 @@ class CrawlerManager(object):
             for item in response:
                 item_dict = item.__dict__
                 if db.search(User.date == item_dict['date']):
+                    self.logger.debug('No Updates- will wait for next interval')
                     break
                 updated_item += 1
                 db.insert(item_dict)
+            if updated_item > 0:
                 self.logger.debug('Updated rows {}'.format(updated_item))
         except Exception:
             self.logger.exception('Problem with crawling - getting out')
