@@ -18,6 +18,7 @@ After that, you need to get the following libraries:
   - tinydb
   - arrow
   - requests
+  - cssselect
  
 You can install them by going to command line and enter the following command:
 
