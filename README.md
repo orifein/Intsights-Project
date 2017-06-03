@@ -13,6 +13,11 @@ You should follow this instructions for installing the project and enjoy it (:
 Before downloading all libraries needed to this project - you should have python3 installed on your computer.
 You can download python3 from here: https://www.python.org/
 
+Also, you need to download docker to your computer for using container that will fetch .onion sites:
+  - Windows docker - https://docs.docker.com/docker-for-windows/
+  - Linux docker  - https://docs.docker.com/engine/installation/linux/ubuntu/#install-using-the-repository
+  - Docker for mac - https://docs.docker.com/docker-for-mac/
+
 After that, you need to get the following libraries:
   - lxml
   - tinydb
@@ -22,14 +27,22 @@ After that, you need to get the following libraries:
  
 You can install them by going to command line and enter the following command:
 
-  - pip install ##Name Of Library##
+  - pip install XXX (XXX represent name of library)
 
 
 
 
 ### Installing the project ###
 Installing the project is simple and fun!
-All you have to do is to clone the project, go to command line , get into specific directory of the project  and enter:
+
+First of all , you should run your docker (after installing it) by typing in the command line: 
+  - Linux\OSX:   sudo docker run -it -p 8118:8118 -p 9050:9050 -d dperson/torproxy
+  - Windows: docker run -it -p 8118:8118 -p 9050:9050 -d dperson/torproxy
+ 
+This command will execute  is a non-caching web proxy with advanced filtering capabilities.
+
+
+After that, all you have to do is to clone the project, go to command line , get into the  specific directory of the project  and enter:
   - python main.py
   
     
@@ -40,6 +53,7 @@ That's all!
   - TinyDB - noSQL database  - more information on http://tinydb.readthedocs.io/en/latest/
   - lxml - Processing XML and HTML with Python -  more information on http://lxml.de/
   - arrows - Python library for date and time - more information on http://arrow.readthedocs.io/en/latest/
+  - cssselect - cssselect parses CSS3 Selectors and translates them to XPath 1.0 - more information on https://pypi.python.org/pypi/cssselect
   
 ## Author ##
  Ori Feinshreiber - Python Developer
