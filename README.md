@@ -54,7 +54,7 @@ That's all!
   - TinyDB - noSQL database  - more information on http://tinydb.readthedocs.io/en/latest/
   - lxml - Processing XML and HTML with Python -  more information on http://lxml.de/
   - arrows - Python library for date and time - more information on http://arrow.readthedocs.io/en/latest/
-  - cssselect - cssselect parses CSS3 Selectors and translates them to XPath 1.0 - more information on https://pypi.python.org/pypi/cssselect
+
   
 ## Author ##
  Ori Feinshreiber - Python Developer
