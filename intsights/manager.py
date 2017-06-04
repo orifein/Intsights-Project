@@ -2,8 +2,14 @@ import arrow
 from base_logger import BaseLogger
 from tinydb import TinyDB, Query
 from repeated_timer import RepeatedTimer
-db = TinyDB('db5.json')
+import os
+db = TinyDB('db.json')
 INTERVAL = 14400  # 14400 Seconds is 4Hours, Yep
+
+
+LOG_FORMAT = '[%(asctime)s %(levelname)s]: %(message)s'
+FILE_DIRECTORY = os.path.dirname(__file__)
+LOGS_FOLDER = os.path.join(FILE_DIRECTORY, 'logs')
 
 
 class CrawlerManager(object):
@@ -12,16 +18,19 @@ class CrawlerManager(object):
         self.action = ''
         self.running_crawler = None
         self.timer = None
-        self.logger = BaseLogger().create_logger('intsights')
+        log_file_path = os.path.join(LOGS_FOLDER, 'logger.log')
+        self.logger = BaseLogger().create_logger('manager_logger', log_file_path, LOG_FORMAT)
+    
 
     def do_work(self):
         try:
             self.action = 'crawl_site'
             self._execute(self.action)
-        except:
-            self.logger.debug('CrawlerManager Error')
-
+        except Exception:
+                raise 
     def start(self):
+        
+        
         if self.timer is not None:
             self.logger.info('Manager is still running')
         else:
@@ -29,7 +38,17 @@ class CrawlerManager(object):
             self.do_work()
             self.logger.debug('Finished first work- now will wait for interval')
             self.timer = RepeatedTimer(INTERVAL, CrawlerManager.do_work, self)
-
+     
+       
+    def stop(self):
+      
+      
+        if self.timer is not None and self.timer.is_alive():
+            self.timer.stop_timer()
+            self.timer = None
+    
+    
+    
     def _get_crawler(self):
         package = 'intsights_crawler'
         class_name = 'IntsightsCrawler'
@@ -55,8 +74,8 @@ class CrawlerManager(object):
             if updated_item > 0:
                 self.logger.debug('Updated rows {}'.format(updated_item))
         except Exception:
-            self.logger.exception('Problem with crawling - getting out')
-
+            raise 
+            
     def _execute(self, action):
         if hasattr(self, action):
             getattr(self, action)()
