@@ -20,10 +20,10 @@ Also, you need to download docker to your computer for using container that will
 
 After that, you need to get the following libraries:
   - lxml
-  - tinydb
+  - tinyDB
   - arrow
   - requests
-  - cssselect
+  - PySocks
  
 You can install them by going to command line and enter the following command:
 
@@ -35,7 +35,7 @@ You can install them by going to command line and enter the following command:
 ### Installing the project ###
 Installing the project is simple and fun!
 
-First of all , you should run your docker (after installing it) by typing in the command line: 
+First of all , you should run your docker (after installing it) by typing in the command line (for Linux\OSX) or Powershell (for windows): 
   - Linux\OSX:   sudo docker run -it -p 8118:8118 -p 9050:9050 -d dperson/torproxy
   - Windows: docker run -it -p 8118:8118 -p 9050:9050 -d dperson/torproxy
  
