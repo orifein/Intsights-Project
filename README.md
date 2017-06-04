@@ -1,16 +1,14 @@
-# Intsights-Project #
-
-This Project is a simple web crawler that was build by python language.
-The simple web crawler will crawl a site that is a part of the "onion network", take information from site and store it on a database.
-The Crawler will run automatically every 4 hours and try to update the database with some new information.
+This Project is a simple web crawler built in python language.
+This crawler will crawl a site that is a part of an"onion network", take information from site and store it on a database.
+The Crawler will run automatically every 4 hours and try to update the database with new information.
 
 
 
 # Getting Started #
-You should follow this instructions for installing the project and enjoy it (:
+You should follow these instructions for installing the project. Enjoy (:
  
 ### Prerequisites ###
-Before downloading all libraries needed to this project - you should have python3 installed on your computer.
+Before downloading all libraries needed for this project - you should have python3 installed on your computer.
 You can download python3 from here: https://www.python.org/
 
 Also, you need to download docker to your computer for using container that will fetch .onion sites:
@@ -39,7 +37,8 @@ First of all , you should run your docker (after installing it) by typing in the
   - Linux\OSX:   sudo docker run -it -p 8118:8118 -p 9050:9050 -d dperson/torproxy
   - Windows: docker run -it -p 8118:8118 -p 9050:9050 -d dperson/torproxy
  
-This command will execute  is a non-caching web proxy with advanced filtering capabilities.
+This command will execute a non-caching web proxy with advanced filtering capabilities.
+
 
 
 After that, all you have to do is to clone the project, go to command line , get into the  specific directory of the project  and enter:
@@ -61,6 +60,3 @@ That's all!
 ## Contribution ##
 
 You can contribute my bank account - that's always good (:
-
-
-
