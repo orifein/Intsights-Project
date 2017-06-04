@@ -1,8 +1,9 @@
 import logging
 
-class StreamLoggerHandler(logging.StreamHandler):
 
+class StreamLoggerHandler(logging.StreamHandler):
     on_same_line = False
+
     def emit(self, record):
         try:
             msg = self.format(record)
